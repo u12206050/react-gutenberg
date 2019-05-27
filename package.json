@@ -1,0 +1,36 @@
+{
+  "name": "react-gutenberg",
+  "version": "0.1.0",
+  "description": "The frontend Gutenberg block generator. OSS Project",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/u12206050/react-gutenberg.git"
+  },
+  "keywords": [
+    "gutenberg",
+    "reactjs",
+    "gatsby",
+    "wordpress",
+    "headless"
+  ],
+  "author": "Gerard Lamusse",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/u12206050/react-gutenberg/issues"
+  },
+  "homepage": "https://github.com/u12206050/react-gutenberg#readme",
+  "dependencies": {
+    "@types/jest": "^24.0.13",
+    "@types/node": "^12.0.2",
+    "@types/react-dom": "^16.8.4",
+    "react": "^16.8.6"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.18"
+  }
+}

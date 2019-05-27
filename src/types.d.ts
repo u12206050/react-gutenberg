@@ -2,7 +2,6 @@
 export interface IBlock {
   blockName: string | null
   attrs: any[] | {
-    ids?: number[]
     [k:string]: any
   }
   innerBlocks: IBlock[]

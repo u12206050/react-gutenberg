@@ -44,7 +44,7 @@ add_action(
 
 ### ReactJS Example
 ```
-import WPGBlocks from 'react-gutenberg/build'
+import WPGBlocks from 'react-gutenberg'
 …
 
   constructor(props) {
@@ -87,7 +87,7 @@ import WPGBlocks from 'react-gutenberg/build'
 ```
 import * as React from "react"
 import { graphql } from "gatsby"
-import WPGBlocks from "react-gutenberg/src"
+import WPGBlocks from "react-gutenberg"
 import { IBlock } from "react-gutenberg/src/types"
 
 const Loading = () => (

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const blocks_1 = require("./blocks");
 const WPGBlocks = ({ blocks, loader = exports.WPGBlockLoader, mapToBlock }) => {
-    return (React.createElement("div", { className: "wpg-blocks" }, blocks.filter(block => !!block.blockName).map(block => React.createElement(exports.WPGBlock, { block: block, loader: loader, mapToBlock: mapToBlock }))));
+    return (React.createElement("div", { className: "wpg-blocks" }, blocks.filter(block => !!block.blockName).map((block, index) => React.createElement(exports.WPGBlock, { key: index, block: block, loader: loader, mapToBlock: mapToBlock }))));
 };
 exports.WPGBlock = ({ block, loader, mapToBlock }) => {
     const { blockName, attrs, innerBlocks, innerHTML } = block;

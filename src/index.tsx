@@ -6,7 +6,7 @@ const WPGBlocks:React.SFC<IWPGBlocksProps> = ({ blocks, loader = WPGBlockLoader,
 
   return (
     <div className="wpg-blocks">
-      {blocks.filter(block => !!block.blockName).map(block => <WPGBlock block={block} loader={loader} mapToBlock={mapToBlock} />)}
+      {blocks.filter(block => !!block.blockName).map((block, index) => <WPGBlock key={index} block={block} loader={loader} mapToBlock={mapToBlock} />)}
     </div>
   )
 }

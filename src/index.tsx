@@ -2,16 +2,16 @@ import React, { Suspense } from 'react'
 import Blocks, { GetTheBlock } from './blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
-const WPGBlocks:React.SFC<IWPGBlocksProps> = ({ blocks, loader = WPGBlockLoader }) => {
+const WPGBlocks:React.SFC<IWPGBlocksProps> = ({ blocks, loader = WPGBlockLoader, mapToBlock }) => {
 
   return (
     <div className="wpg-blocks">
-      {blocks.filter(block => !!block.blockName).map(block => <WPGBlock block={block} loader={loader} />)}
+      {blocks.filter(block => !!block.blockName).map(block => <WPGBlock block={block} loader={loader} mapToBlock={mapToBlock} />)}
     </div>
   )
 }
 
-export const WPGBlock:React.SFC<IWPGBlockProps> = ({ block, loader }) => {
+export const WPGBlock:React.SFC<IWPGBlockProps> = ({ block, loader, mapToBlock }) => {
 
   const {
     blockName,
@@ -21,13 +21,14 @@ export const WPGBlock:React.SFC<IWPGBlockProps> = ({ block, loader }) => {
 
   if (!blockName) return null
 
-  let theBlock = GetTheBlock(blockName)
+  let TheBlock = mapToBlock ? mapToBlock(blockName) : null
+  if (!TheBlock) TheBlock = GetTheBlock(blockName)
 
-  if (!theBlock) return null
+  if (!TheBlock) return null
 
   return (
     <Suspense fallback={loader}>
-      { theBlock }
+      <TheBlock blockName={blockName} attrs={attrs} innerBlocks={innerBlocks} innerHTML={innerHTML} />
     </Suspense>
   )
 }

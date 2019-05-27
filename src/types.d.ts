@@ -12,9 +12,11 @@ export interface IBlock {
 export interface IWPGBlockProps {
   block: IBlock
   loader: React.Component
+  mapToBlock?(name: string): React.LazyExoticComponent<React.FunctionComponent<IBlock>> | null
 }
 
 export interface IWPGBlocksProps {
   blocks: IBlock[]
   loader?: any
+  mapToBlock?(name: string): React.LazyExoticComponent<React.FunctionComponent<IBlock>> | null
 }

@@ -1,1 +1,1 @@
-export { default as WPG } from './src'
+export * from './src'

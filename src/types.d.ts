@@ -1,21 +1,21 @@
 
-export interface IBlock {
+export interface IWPGBlock {
   blockName: string | null
   attrs: any[] | {
     [k:string]: any
   }
-  innerBlocks: IBlock[]
+  innerBlocks: IWPGBlock[]
   innerHTML: string
 }
 
 export interface IWPGBlockProps {
-  block: IBlock
+  block: IWPGBlock
   loader: React.Component
-  mapToBlock?(name: string): React.LazyExoticComponent<React.FunctionComponent<IBlock>> | null
+  mapToBlock?(name: string): React.LazyExoticComponent<any> | null
 }
 
 export interface IWPGBlocksProps {
-  blocks: IBlock[]
+  blocks: any[]
   loader?: any
-  mapToBlock?(name: string): React.LazyExoticComponent<React.FunctionComponent<IBlock>> | null
+  mapToBlock?(name: string): React.LazyExoticComponent<any> | null
 }

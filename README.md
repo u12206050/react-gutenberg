@@ -88,7 +88,7 @@ import WPGBlocks from 'react-gutenberg'
 import * as React from "react"
 import { graphql } from "gatsby"
 import WPGBlocks from "react-gutenberg"
-import { IBlock } from "react-gutenberg/src/types"
+import { IWPGBlock } from "react-gutenberg/src/types"
 
 const Loading = () => (
   <div class="loading"></div>
@@ -98,11 +98,11 @@ interface IPost {
   wordpress_id: number
   id: number
   title: string
-  blocks: IBlock[]
+  blocks: IWPGBlock[]
 }
 
-const Post: React.SFC<{data: IPost}> = ({ data }) => {
-  const { id, title, blocks } = data
+const Post: React.SFC<{data: { post: IPost }}> = ({ data }) => {
+  const { id, title, blocks } = data.post
 
   return (
     <Layout>
@@ -215,7 +215,7 @@ By default the raw `innerHTML` is used to render the block, however in some case
 - [ ] Flickr
 - [ ] Vimeo
 
-## Adding your own custom blocks
+## Adding your own Custom Blocks
 
 The main purpose of this library is to give you a easy way to add any custom blocks for your projects.
 
@@ -236,8 +236,30 @@ export function GetTheBlock(name: string) {
 
 Then wherever you use the `WPGBlocks` component send it the function `GetTheBlock` on the prop `mapToBlock`. The library will then first call your function before checking if it has a component.
 
-Component Example: `<WPGBlocks blocks={blocks} mapToBlock={GetTheBlock} />
+Usage Example: `<WPGBlocks blocks={blocks} mapToBlock={GetTheBlock} />
 
+## Custom Component for Custom Blocks
+
+You may also supply your own components for the default blocks.
+
+Example of a custom component for `core/paragraph` block:
+
+```
+import { IWPGBlock } from 'react-gutenberg/'
+import * as React from 'react'
+
+const CustomParagraphBlock:React.SFC<IWPGBlock> = (props) => {
+  const {
+    attrs,
+    innerHTML } = props
+
+  return (
+    <div className="custom-paragraph" dangerouslySetInnerHTML={{__html: innerHTML}}/>
+  )
+}
+
+export default CustomParagraphBlock
+```
 
 ## Why?
 

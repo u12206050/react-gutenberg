@@ -1,18 +1,9 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var common_1 = require("./common");
-var format_1 = require("./format");
+const react_1 = require("react");
+const common_1 = require("./common");
+const format_1 = require("./format");
+const DefaultHtmlBlock = react_1.default.lazy(() => Promise.resolve().then(() => require('./format/html')));
 function GetTheBlock(name) {
     switch (name) {
         case 'core/audio': return common_1.default.Audio;
@@ -29,8 +20,9 @@ function GetTheBlock(name) {
         case 'core/html': return format_1.default.Html;
         case 'core/preformatted': return format_1.default.Preformatted;
         case 'core/pullquote': return format_1.default.Pullquote;
-        default: return null;
+        default: return DefaultHtmlBlock;
     }
 }
 exports.GetTheBlock = GetTheBlock;
-exports.default = __assign({}, common_1.default);
+exports.default = Object.assign({}, common_1.default);
+//# sourceMappingURL=index.js.map

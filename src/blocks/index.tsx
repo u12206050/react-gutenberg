@@ -1,5 +1,9 @@
+import React from 'react'
+
 import CommonBlocks from './common'
 import FormatBlocks from './format'
+
+const DefaultHtmlBlock = React.lazy(() => import('./format/html'))
 
 export function GetTheBlock(name: string) {
   switch (name) {
@@ -18,7 +22,7 @@ export function GetTheBlock(name: string) {
     case 'core/html': return FormatBlocks.Html
     case 'core/preformatted': return FormatBlocks.Preformatted
     case 'core/pullquote': return FormatBlocks.Pullquote
-    default: return null
+    default: return DefaultHtmlBlock
   }
 }
 

@@ -1,0 +1,1 @@
+{"version":3,"file":"html.js","sourceRoot":"","sources":["../../../src/blocks/format/html.tsx"],"names":[],"mappings":";;AACA,iCAAyB;AAEzB,MAAM,YAAY,GAAqB,CAAC,KAAK,EAAE,EAAE;IAC/C,MAAM,EACJ,KAAK,EACL,WAAW,EACX,SAAS,EAAE,GAAG,KAAK,CAAA;IAErB,OAAO,CACL,uCAAK,SAAS,EAAC,sBAAsB,EAAC,uBAAuB,EAAE,EAAE,MAAM,EAAE,SAAS,EAAE,SAAU,CAC/F,CAAA;AACH,CAAC,CAAA;AAED,kBAAe,YAAY,CAAA"}

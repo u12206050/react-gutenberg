@@ -4,20 +4,17 @@
     "./src/**/*.ts"
   ],
   "compilerOptions": {
-      "target": "es5",
-      "module": "commonjs",
-      "lib": ["dom", "es2017"],
-      "allowJs": true,
-      "jsx": "react",
-      "strict": true,
-      "esModuleInterop": true,
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true,
-      "noEmit": true,
-      "skipLibCheck": true,
-      "baseUrl": "./",
-      "paths": {
-        "@/*": ["./src/*"],
-      },
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "react",
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
+    "noErrorTruncation": true,
+    "paths": {
+      "@/*": ["./src/*"],
+    },
   }
 }

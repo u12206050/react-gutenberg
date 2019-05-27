@@ -8,7 +8,7 @@ The frontend can either be a ReactJS App or [Gatsby](https://gatsbyjs.org/) Head
 
 In order for this to work we'll need to get the Gutenberg data as JSON from WP via REST.
 
-The following code can either be added with a plugin or in your theme's `functions.php`
+The following code exposes a new field on posts and pages called `blocks`. It can be added either via a plugin or in your theme's `functions.php` file
 
 ```
 <?php
@@ -39,8 +39,6 @@ add_action(
   }
 );
 ```
-
-This adds the required property `blocks` on the REST Api responses on pages and posts.
 
 ## Usage
 

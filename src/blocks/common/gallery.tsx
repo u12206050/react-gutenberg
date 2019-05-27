@@ -1,5 +1,5 @@
 import { IBlock } from '@/types'
-import React from 'react'
+import * as React from 'react'
 
 const WPGGalleryBlock:React.SFC<IBlock> = (props) => {
   const {

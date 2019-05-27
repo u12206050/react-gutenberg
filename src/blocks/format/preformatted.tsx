@@ -1,5 +1,5 @@
 import { IBlock } from '@/types'
-import React from 'react'
+import * as React from 'react'
 
 const WPGPreformattedBlock:React.SFC<IBlock> = (props) => {
   const {

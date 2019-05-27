@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 const Code = React.lazy(() => import('./code'))
 const Html = React.lazy(() => import('./html'))

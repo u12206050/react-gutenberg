@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import * as React from 'react'
 import Blocks, { GetTheBlock } from './blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
@@ -27,9 +27,9 @@ export const WPGBlock:React.SFC<IWPGBlockProps> = ({ block, loader, mapToBlock }
   if (!TheBlock) return null
 
   return (
-    <Suspense fallback={loader}>
+    <React.Suspense fallback={loader}>
       <TheBlock blockName={blockName} attrs={attrs} innerBlocks={innerBlocks} innerHTML={innerHTML} />
-    </Suspense>
+    </React.Suspense>
   )
 }
 

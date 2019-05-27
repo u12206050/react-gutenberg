@@ -85,7 +85,7 @@ import WPGBlocks from 'react-gutenberg/build'
 ### Gatsby Example
 
 ```
-import React from "react"
+import * as React from "react"
 import { graphql } from "gatsby"
 import WPGBlocks from "react-gutenberg/src"
 import { IBlock } from "react-gutenberg/src/types"

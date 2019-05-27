@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 const Audio = React.lazy(() => import('./audio'))
 const Cover = React.lazy(() => import('./cover'))

@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = require("react");
+const React = require("react");
 const common_1 = require("./common");
 const format_1 = require("./format");
-const DefaultHtmlBlock = react_1.default.lazy(() => Promise.resolve().then(() => require('./format/html')));
+const DefaultHtmlBlock = React.lazy(() => Promise.resolve().then(() => require('./format/html')));
 function GetTheBlock(name) {
     switch (name) {
         case 'core/audio': return common_1.default.Audio;

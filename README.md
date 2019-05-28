@@ -137,29 +137,10 @@ export const pageQuery = graphql`
   fragment Blocks on wordpress__POSTBlocks {
     blockName
     innerHTML
-    attrs {
-      align
-      mainColor
-      textColor
-      backgroundColor
-      className
-      columns
-      ids
-      level
-      href {
-        ...imageFile
-      }
-      url {
-        ...imageFile
-      }
-    }
     innerBlocks {
       blockName
       innerHTML
       attrs {
-        align
-        fontSize
-        placeholder
         blockId
         blockUniqueClass
         custom_name
@@ -249,35 +230,35 @@ By default the raw `innerHTML` is used to render the block, however in some case
 - [ ] Flickr
 - [ ] Vimeo
 
-## Adding your own Custom Blocks
+## Custom Blocks
+
+### Adding your own Custom Blocks
 
 The main purpose of this library is to give you a easy way to add any custom blocks for your projects.
 
 Blocks created with [LazyBlocks](https://wordpress.org/plugins/lazy-blocks/) have a `blockName` starting with `lazyblock/`.
 
-To do this you should **lazy import** all your custom blocks into one file say `mapToBlock.tsx`(typescript) or `mapToBlock.js` and then export one function as follows:
+To do this you should **lazy import** all your custom blocks into one file say `blocks/index.tsx`(typescript) exporting a function that decides what component to load for which block name.
 
 ```
-import * as React from 'react'
-const Employee = React.lazy(() => import('./employee'))
-const Gallery = React.lazy(() => import('./coolGallery'))
-const Banner = React.lazy(() => import('./banner'))
+// src/blocks/index.tsx
+import React from 'react'
 
-export function GetTheBlock(name: string) {
+const Employee = React.lazy(() => import('./employee'))
+
+export default function GetCustomBlock(name: string) {
   switch (name) {
     case 'lazyblock/employee': return Employee
-    case 'core/gallery': return Gallery
-    case 'core/cover': return Banner
-    defualt: return null
+    default: return null
   }
 }
 ```
 
-Then wherever you use the `WPGBlocks` component send it the function `GetTheBlock` on the prop `mapToBlock`. The library will then first call your function before checking if it has a component.
+Then wherever you use the `WPGBlocks` component send it the function `GetCustomBlock` on the prop `mapToBlock`. The library will then first call your function before checking if it has a component.
 
-Usage Example: `<WPGBlocks blocks={blocks} mapToBlock={GetTheBlock} />
+Usage Example: `<WPGBlocks blocks={blocks} mapToBlock={GetCustomBlock} />
 
-## Custom Component for Custom Blocks
+### Custom Component for Custom Blocks
 
 You may also supply your own components for the default blocks.
 
@@ -299,6 +280,8 @@ const CustomParagraphBlock:React.SFC<IWPGBlock> = (props) => {
 
 export default CustomParagraphBlock
 ```
+
+
 
 ## Why?
 

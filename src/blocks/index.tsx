@@ -1,10 +1,10 @@
-import * as React from 'react'
+import loadable from '@loadable/component'
 
 import CommonBlocks from './common'
 import FormatBlocks from './format'
 import LayoutBlocks from './layout'
 
-const DefaultHtmlBlock = React.lazy(() => import('./format/html'))
+const DefaultHtmlBlock = loadable(() => import('./format/html'))
 
 export function GetTheBlock(name: string) {
   switch (name) {

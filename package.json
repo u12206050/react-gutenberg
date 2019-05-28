@@ -1,6 +1,6 @@
 {
   "name": "react-gutenberg",
-  "version": "0.4.9",
+  "version": "0.5.0",
   "description": "The frontend Gutenberg block generator. OSS Project",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,9 @@
   },
   "homepage": "https://github.com/u12206050/react-gutenberg#readme",
   "dependencies": {
+    "@loadable/component": "^5.10.1",
     "@types/jest": "^24.0.13",
+    "@types/loadable__component": "^5.9.0",
     "@types/node": "^12.0.2",
     "@types/react-dom": "^16.8.4",
     "react": "^16.8.6",

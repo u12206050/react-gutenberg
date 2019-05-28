@@ -1,15 +1,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const blocks_1 = require("./blocks");
-const WPGBlocks = ({ blocks, loader = React.createElement(exports.WPGBlockLoader, null), mapToBlock }) => {
-    return (React.createElement("div", { className: "wpg-blocks" }, blocks.filter(block => !!block.blockName).map((block, index) => React.createElement(exports.WPGBlock, { key: index, block: block, loader: loader, mapToBlock: mapToBlock }))));
+const WPGBlocks = ({ blocks, mapToBlock }) => {
+    return (React.createElement("div", { className: "wpg-blocks" }, blocks.filter(block => !!block.blockName).map((block, index) => React.createElement(exports.WPGBlock, { key: index, block: block, mapToBlock: mapToBlock }))));
 };
-exports.WPGBlock = ({ block, loader, mapToBlock }) => {
+exports.WPGBlock = ({ block, mapToBlock }) => {
     const { blockName, attrs, innerBlocks, innerHTML } = block;
     if (!blockName)
         return null;
-    if (loader)
-        exports.WPGBlock.Loader = loader;
     if (mapToBlock)
         exports.WPGBlock.MapToBlock = mapToBlock;
     let TheBlock = exports.WPGBlock.MapToBlock ? exports.WPGBlock.MapToBlock(blockName) : null;
@@ -17,11 +15,7 @@ exports.WPGBlock = ({ block, loader, mapToBlock }) => {
         TheBlock = blocks_1.GetTheBlock(blockName);
     if (!TheBlock)
         return null;
-    return (React.createElement(React.Suspense, { fallback: exports.WPGBlock.Loader },
-        React.createElement(TheBlock, { blockName: blockName, attrs: attrs, innerBlocks: innerBlocks, innerHTML: innerHTML })));
-};
-exports.WPGBlockLoader = () => {
-    return (React.createElement("div", { className: "wpg-block__loader" }, "Loading..."));
+    return (React.createElement(TheBlock, { blockName: blockName, attrs: attrs, innerBlocks: innerBlocks, innerHTML: innerHTML }));
 };
 exports.default = WPGBlocks;
 //# sourceMappingURL=index.js.map

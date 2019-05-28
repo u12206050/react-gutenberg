@@ -7,6 +7,9 @@ Using [LazyBlocks](https://wordpress.org/plugins/lazy-blocks/) to create custom 
 The frontend can either be a ReactJS App or [Gatsby](https://gatsbyjs.org/) Headless site.
 
 
+[View Demo](https://gatsby-gutenberg.netlify.com/)
+
+
 ## Prerequisites
 
 In order for this to work we'll need to get the Gutenberg data as JSON from WP via REST.
@@ -44,6 +47,12 @@ add_action(
 ```
 
 ## Usage
+
+### Install
+
+`npm install react-gutenberg --save`
+
+To include your own custom components: `npm install @loadable/component @types/loadable__component --save`
 
 ### ReactJS Example
 ```
@@ -172,6 +181,8 @@ export const pageQuery = graphql`
 
 By default the raw `innerHTML` is used to render the block, however in some cases it is more beneficial that the block is built up in React for example having a the Gallery component to support lightbox effect.
 
+As a fallback if a block can't be found it is rendered with the HTML Block which should cover most of the default Wordpress Blocks.
+
 ### Common Blocks
 
 - [x] Paragraph
@@ -240,11 +251,14 @@ Blocks created with [LazyBlocks](https://wordpress.org/plugins/lazy-blocks/) hav
 
 To do this you should **lazy import** all your custom blocks into one file say `blocks/index.tsx`(typescript) exporting a function that decides what component to load for which block name.
 
+To support SSR, we use [`loadable`](https://www.smooth-code.com/open-source/loadable-components/docs/getting-started/). Install it: `npm install @loadable/component @types/loadable__component --save`
+
+
 ```
 // src/blocks/index.tsx
-import React from 'react'
+import loadable from '@loadable/component'
 
-const Employee = React.lazy(() => import('./employee'))
+const Employee = loadable(() => import('./employee'))
 
 export default function GetCustomBlock(name: string) {
   switch (name) {
@@ -258,7 +272,7 @@ Then wherever you use the `WPGBlocks` component send it the function `GetCustomB
 
 Usage Example: `<WPGBlocks blocks={blocks} mapToBlock={GetCustomBlock} />
 
-### Custom Component for Custom Blocks
+### Custom Component for Default Blocks
 
 You may also supply your own components for the default blocks.
 

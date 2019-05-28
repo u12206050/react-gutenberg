@@ -1,15 +1,15 @@
-import * as React from 'react'
+import loadable from '@loadable/component'
 
-const Audio = React.lazy(() => import('./audio'))
-const Cover = React.lazy(() => import('./cover'))
-const File = React.lazy(() => import('./file'))
-const Gallery = React.lazy(() => import('./gallery'))
-const Heading = React.lazy(() => import('./heading'))
-const Image = React.lazy(() => import('./image'))
-const List = React.lazy(() => import('./list'))
-const Paragraph = React.lazy(() => import('./paragraph'))
-const Quote = React.lazy(() => import('./quote'))
-const Video = React.lazy(() => import('./video'))
+const Audio = loadable(() => import('./audio'))
+const Cover = loadable(() => import('./cover'))
+const File = loadable(() => import('./file'))
+const Gallery = loadable(() => import('./gallery'))
+const Heading = loadable(() => import('./heading'))
+const Image = loadable(() => import('./image'))
+const List = loadable(() => import('./list'))
+const Paragraph = loadable(() => import('./paragraph'))
+const Quote = loadable(() => import('./quote'))
+const Video = loadable(() => import('./video'))
 
 export default {
   Audio,

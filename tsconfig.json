@@ -15,7 +15,7 @@
     "allowSyntheticDefaultImports": true,
     "noErrorTruncation": true,
     "paths": {
-      "@/*": ["./src/*"],
+      "~/*": ["./src/*"],
     },
   }
 }

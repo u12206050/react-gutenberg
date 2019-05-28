@@ -1,9 +1,9 @@
-import * as React from 'react'
+import loadable from '@loadable/component'
 
-const Code = React.lazy(() => import('./code'))
-const Html = React.lazy(() => import('./html'))
-const Preformatted = React.lazy(() => import('./preformatted'))
-const Pullquote = React.lazy(() => import('./pullquote'))
+const Code = loadable(() => import('./code'))
+const Html = loadable(() => import('./html'))
+const Preformatted = loadable(() => import('./preformatted'))
+const Pullquote = loadable(() => import('./pullquote'))
 
 export default {
   Code,

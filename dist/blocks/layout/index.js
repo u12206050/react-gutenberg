@@ -1,6 +1,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
-const React = require("react");
-const Columns = React.lazy(() => Promise.resolve().then(() => require('./columns')));
+const component_1 = require("@loadable/component");
+const Columns = component_1.default(() => Promise.resolve().then(() => require('./columns')));
 exports.default = {
     Columns
 };

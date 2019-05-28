@@ -1,9 +1,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
-const React = require("react");
+const component_1 = require("@loadable/component");
 const common_1 = require("./common");
 const format_1 = require("./format");
 const layout_1 = require("./layout");
-const DefaultHtmlBlock = React.lazy(() => Promise.resolve().then(() => require('./format/html')));
+const DefaultHtmlBlock = component_1.default(() => Promise.resolve().then(() => require('./format/html')));
 function GetTheBlock(name) {
     switch (name) {
         case 'core/audio': return common_1.default.Audio;

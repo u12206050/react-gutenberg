@@ -1,6 +1,6 @@
-import * as React from 'react'
+import loadable from '@loadable/component'
 
-const Columns = React.lazy(() => import('./columns'))
+const Columns = loadable(() => import('./columns'))
 
 export default {
   Columns

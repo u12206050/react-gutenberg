@@ -10,12 +10,10 @@ export interface IWPGBlock {
 
 export interface IWPGBlockProps {
   block: IWPGBlock
-  loader?: React.Component
-  mapToBlock?(name: string): React.LazyExoticComponent<any> | null
+  mapToBlock?(name: string): any | null
 }
 
 export interface IWPGBlocksProps {
-  blocks: any[]
-  loader?: any
-  mapToBlock?(name: string): React.LazyExoticComponent<any> | null
+  blocks: IWPGBlock[]
+  mapToBlock?(name: string): any | null
 }

@@ -1,6 +1,6 @@
 {
   "name": "react-gutenberg",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "The frontend Gutenberg block generator. OSS Project",
   "main": "index.js",
   "scripts": {
@@ -12,9 +12,10 @@
     "url": "git+https://github.com/u12206050/react-gutenberg.git"
   },
   "keywords": [
+    "gatsby",
+    "gatsby-plugin",
     "gutenberg",
     "reactjs",
-    "gatsby",
     "wordpress",
     "headless"
   ],

@@ -28,4 +28,5 @@ export function GetTheBlock(name: string) {
 
 export default {
   ...CommonBlocks,
+  ...FormatBlocks
 }

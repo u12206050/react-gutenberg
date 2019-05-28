@@ -2,7 +2,10 @@
 
 **The goal of this project** is to be able to generate an entire WordPress post created with Gutenberg, within a seperate React based frontend.
 
+Using [LazyBlocks](https://wordpress.org/plugins/lazy-blocks/) to create custom blocks you can mix both custom and builtin blocks in your posts & pages.
+
 The frontend can either be a ReactJS App or [Gatsby](https://gatsbyjs.org/) Headless site.
+
 
 ## Prerequisites
 
@@ -155,7 +158,7 @@ export const pageQuery = graphql`
 
 ## Supported/Implemented WP Gutenberg Blocks
 
-By default the raw `innerHTML` is used to render the block, however in some cases it is more beneficial that the block is built up in React for example the Gallery Block to support lightbox effect.
+By default the raw `innerHTML` is used to render the block, however in some cases it is more beneficial that the block is built up in React for example having a the Gallery component to support lightbox effect.
 
 ### Common Blocks
 
@@ -219,14 +222,19 @@ By default the raw `innerHTML` is used to render the block, however in some case
 
 The main purpose of this library is to give you a easy way to add any custom blocks for your projects.
 
-To do this you can **lazy import** all your custom blocks into one file say `mapToBlock.tsx`(typescript) or `mapToBlock.js` and then export one function as follows:
+Blocks created with [LazyBlocks](https://wordpress.org/plugins/lazy-blocks/) have a `blockName` starting with `lazyblock/`.
+
+To do this you should **lazy import** all your custom blocks into one file say `mapToBlock.tsx`(typescript) or `mapToBlock.js` and then export one function as follows:
 
 ```
+import * as React from 'react'
+const Employee = React.lazy(() => import('./employee'))
 const Gallery = React.lazy(() => import('./coolGallery'))
 const Banner = React.lazy(() => import('./banner'))
 
 export function GetTheBlock(name: string) {
   switch (name) {
+    case 'lazyblock/employee': return Employee
     case 'core/gallery': return Gallery
     case 'core/cover': return Banner
     defualt: return null
@@ -281,9 +289,4 @@ The styles of each block is kept to a minimal and should work in both dark and l
 
 Classes on blocks should conform to the [BEM](https://en.bem.info/methodology/naming-convention/) naming convention.
 
-The following variables can be used but used sparingly
-
-```
---dark-color: #111;
---light-color: #f3f3f3;
-```
+Included is the default WP styles for Blocks based on the Twenty Ninetween theme. To use it: `import react-gutenberg/default.css`

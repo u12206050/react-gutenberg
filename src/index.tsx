@@ -1,9 +1,8 @@
 import * as React from 'react'
-import Blocks, { GetTheBlock } from './blocks'
+import { GetTheBlock } from './blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
 const WPGBlocks:React.SFC<IWPGBlocksProps> = ({ blocks, loader = WPGBlockLoader, mapToBlock }) => {
-
   return (
     <div className="wpg-blocks">
       {blocks.filter(block => !!block.blockName).map((block, index) => <WPGBlock key={index} block={block} loader={loader} mapToBlock={mapToBlock} />)}

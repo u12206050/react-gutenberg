@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import CommonBlocks from './common'
 import FormatBlocks from './format'
+import LayoutBlocks from './layout'
 
 const DefaultHtmlBlock = React.lazy(() => import('./format/html'))
 
@@ -22,6 +23,8 @@ export function GetTheBlock(name: string) {
     case 'core/html': return FormatBlocks.Html
     case 'core/preformatted': return FormatBlocks.Preformatted
     case 'core/pullquote': return FormatBlocks.Pullquote
+
+    case 'core/columns': return LayoutBlocks.Columns
     default: return DefaultHtmlBlock
   }
 }

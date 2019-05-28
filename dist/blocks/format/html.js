@@ -11,7 +11,10 @@ class WPGHtmlBlock extends React.Component {
         });
     }
     render() {
-        const { attrs, innerBlocks, innerHTML } = this.props;
+        const { 
+        // attrs,
+        // innerBlocks,
+        innerHTML } = this.props;
         const scriptHtml = innerHTML.replace(/<script(>|\s)/gm, `<script data-script="${this.id}"$1`);
         return (React.createElement("div", { className: "wpg-block wpg-b_html", dangerouslySetInnerHTML: { __html: scriptHtml } }));
     }

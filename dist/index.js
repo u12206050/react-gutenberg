@@ -8,12 +8,16 @@ exports.WPGBlock = ({ block, loader, mapToBlock }) => {
     const { blockName, attrs, innerBlocks, innerHTML } = block;
     if (!blockName)
         return null;
-    let TheBlock = mapToBlock ? mapToBlock(blockName) : null;
+    if (loader)
+        exports.WPGBlock.Loader = loader;
+    if (mapToBlock)
+        exports.WPGBlock.MapToBlock = mapToBlock;
+    let TheBlock = exports.WPGBlock.MapToBlock ? exports.WPGBlock.MapToBlock(blockName) : null;
     if (!TheBlock)
         TheBlock = blocks_1.GetTheBlock(blockName);
     if (!TheBlock)
         return null;
-    return (React.createElement(React.Suspense, { fallback: loader },
+    return (React.createElement(React.Suspense, { fallback: exports.WPGBlock.Loader },
         React.createElement(TheBlock, { blockName: blockName, attrs: attrs, innerBlocks: innerBlocks, innerHTML: innerHTML })));
 };
 exports.WPGBlockLoader = () => {

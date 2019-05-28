@@ -2,6 +2,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const common_1 = require("./common");
 const format_1 = require("./format");
+const layout_1 = require("./layout");
 const DefaultHtmlBlock = React.lazy(() => Promise.resolve().then(() => require('./format/html')));
 function GetTheBlock(name) {
     switch (name) {
@@ -19,6 +20,7 @@ function GetTheBlock(name) {
         case 'core/html': return format_1.default.Html;
         case 'core/preformatted': return format_1.default.Preformatted;
         case 'core/pullquote': return format_1.default.Pullquote;
+        case 'core/columns': return layout_1.default.Columns;
         default: return DefaultHtmlBlock;
     }
 }

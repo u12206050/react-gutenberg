@@ -13,9 +13,10 @@ class WPGHtmlBlock extends React.Component<IWPGBlock> {
 
   render() {
     const {
-      attrs,
-      innerBlocks,
-      innerHTML } = this.props
+      // attrs,
+      // innerBlocks,
+      innerHTML
+    } = this.props
 
     const scriptHtml = innerHTML.replace(/<script(>|\s)/gm, `<script data-script="${this.id}"$1`)
 

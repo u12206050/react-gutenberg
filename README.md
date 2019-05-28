@@ -133,23 +133,54 @@ export const pageQuery = graphql`
         slug
       }
   }
+
+  fragment Blocks on wordpress__POSTBlocks {
+    blockName
+    innerHTML
+    attrs {
+      align
+      mainColor
+      textColor
+      backgroundColor
+      className
+      columns
+      ids
+      level
+      href {
+        ...imageFile
+      }
+      url {
+        ...imageFile
+      }
+    }
+    innerBlocks {
+      blockName
+      innerHTML
+      attrs {
+        align
+        fontSize
+        placeholder
+        blockId
+        blockUniqueClass
+        custom_name
+      }
+      innerBlocks {
+        blockName
+        innerHTML
+        attrs {
+          blockId
+          blockUniqueClass
+          custom_name_in_column
+        }
+      }
+    }
+  }
+
   query PostById($id: String!) {
     post: wordpressPost(id: { eq: $id }) {
       ...WPPost
       blocks {
-        blockName
-        attrs {
-          wordpress_id
-          ids
-        }
-        innerBlocks {
-          blockName
-          attrs {
-            align
-          }
-          innerHTML
-        }
-        innerHTML
+        ...Blocks
       }
     }
   }
@@ -186,7 +217,7 @@ By default the raw `innerHTML` is used to render the block, however in some case
 ### Layout Elements
 
 - [ ] Button
-- [ ] Columns
+- [x] Columns ! Yes supports recursive blocks
 - [ ] Media & Text
 - [ ] More
 - [ ] Page Break

@@ -1,6 +1,6 @@
 {
   "name": "react-gutenberg",
-  "version": "0.4.4",
+  "version": "0.5.0",
   "description": "The frontend Gutenberg block generator. OSS Project",
   "main": "index.js",
   "scripts": {

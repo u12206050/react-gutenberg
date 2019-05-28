@@ -20,13 +20,16 @@ export const WPGBlock:React.SFC<IWPGBlockProps> = ({ block, loader, mapToBlock }
 
   if (!blockName) return null
 
-  let TheBlock = mapToBlock ? mapToBlock(blockName) : null
+  if (loader) (WPGBlock as any).Loader = loader
+  if (mapToBlock) (WPGBlock as any).MapToBlock = mapToBlock
+
+  let TheBlock = (WPGBlock as any).MapToBlock ? (WPGBlock as any).MapToBlock(blockName) : null
   if (!TheBlock) TheBlock = GetTheBlock(blockName)
 
   if (!TheBlock) return null
 
   return (
-    <React.Suspense fallback={loader}>
+    <React.Suspense fallback={(WPGBlock as any).Loader}>
       <TheBlock blockName={blockName} attrs={attrs} innerBlocks={innerBlocks} innerHTML={innerHTML} />
     </React.Suspense>
   )

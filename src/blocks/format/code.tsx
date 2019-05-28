@@ -3,9 +3,10 @@ import * as React from 'react'
 
 const WPGCodeBlock:React.SFC<IWPGBlock> = (props) => {
   const {
-    attrs,
-    innerBlocks,
-    innerHTML } = props
+    // attrs,
+    // innerBlocks,
+    innerHTML
+  } = props
 
   return (
     <div className="wpg-block wpg-b_Code" dangerouslySetInnerHTML={{ __html: innerHTML }}/>

@@ -1,4 +1,3 @@
-"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const WPGImageBlock = (props) => {

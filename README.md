@@ -289,4 +289,4 @@ The styles of each block is kept to a minimal and should work in both dark and l
 
 Classes on blocks should conform to the [BEM](https://en.bem.info/methodology/naming-convention/) naming convention.
 
-Included is the default WP styles for Blocks based on the Twenty Ninetween theme. To use it: `import react-gutenberg/default.css`
+Included is the default WP styles for Blocks based on the Twenty Ninetween theme. To use it: `import "react-gutenberg/default.css"`

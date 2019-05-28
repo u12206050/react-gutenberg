@@ -11,6 +11,7 @@
     "target": "es6",
     "jsx": "react",
     "baseUrl": "./",
+    "noImplicitUseStrict": true,
     "allowSyntheticDefaultImports": true,
     "noErrorTruncation": true,
     "paths": {

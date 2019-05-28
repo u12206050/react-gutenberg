@@ -1,4 +1,3 @@
-"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const Code = React.lazy(() => Promise.resolve().then(() => require('./code')));

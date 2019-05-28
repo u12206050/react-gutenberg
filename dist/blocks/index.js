@@ -1,4 +1,3 @@
-"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const common_1 = require("./common");
@@ -24,5 +23,5 @@ function GetTheBlock(name) {
     }
 }
 exports.GetTheBlock = GetTheBlock;
-exports.default = Object.assign({}, common_1.default);
+exports.default = Object.assign({}, common_1.default, format_1.default);
 //# sourceMappingURL=index.js.map

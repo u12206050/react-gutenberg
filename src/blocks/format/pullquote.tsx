@@ -1,4 +1,4 @@
-import { IWPGBlock } from '~/types'
+import { IWPGBlock } from '../../types'
 import * as React from 'react'
 
 const WPGPullquoteBlock:React.SFC<IWPGBlock> = (props) => {

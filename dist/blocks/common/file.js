@@ -4,7 +4,7 @@ const WPGFileBlock = (props) => {
     const { 
     // attrs,
     // innerBlocks,
-    innerHTML } = props;
+    innerHTML, } = props;
     return (React.createElement("div", { className: "wpg-block wpg-b_file", dangerouslySetInnerHTML: { __html: innerHTML } }));
 };
 exports.default = WPGFileBlock;

@@ -1,16 +1,16 @@
-import { IWPGBlock } from '../../types'
-import * as React from 'react'
+import { IWPGBlock } from "../../types";
+import * as React from "react";
 
-const WPGQuoteBlock:React.SFC<IWPGBlock> = (props) => {
+const WPGQuoteBlock: React.FC<IWPGBlock> = (props) => {
   const {
     // attrs,
     // innerBlocks,
-    innerHTML
-  } = props
+    innerHTML,
+  } = props;
 
   return (
-    <div className="wpg-block wpg-b_quote" dangerouslySetInnerHTML={{__html: innerHTML}}/>
-  )
-}
+    <div className="wpg-block wpg-b_quote" dangerouslySetInnerHTML={{ __html: innerHTML }} />
+  );
+};
 
-export default WPGQuoteBlock
+export default WPGQuoteBlock;

@@ -1,4 +1,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.GetTheBlock = void 0;
 const component_1 = require("@loadable/component");
 const common_1 = require("./common");
 const format_1 = require("./format");
@@ -25,5 +26,5 @@ function GetTheBlock(name) {
     }
 }
 exports.GetTheBlock = GetTheBlock;
-exports.default = Object.assign({}, common_1.default, format_1.default);
+exports.default = Object.assign(Object.assign({}, common_1.default), format_1.default);
 //# sourceMappingURL=index.js.map

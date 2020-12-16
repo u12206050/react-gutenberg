@@ -4,7 +4,7 @@ const WPGCoverBlock = (props) => {
     const { 
     // attrs,
     // innerBlocks,
-    innerHTML } = props;
+    innerHTML, } = props;
     return (React.createElement("div", { className: "wpg-block wpg-b_cover", dangerouslySetInnerHTML: { __html: innerHTML } }));
 };
 exports.default = WPGCoverBlock;

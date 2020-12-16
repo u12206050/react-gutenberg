@@ -4,7 +4,7 @@ const WPGQuoteBlock = (props) => {
     const { 
     // attrs,
     // innerBlocks,
-    innerHTML } = props;
+    innerHTML, } = props;
     return (React.createElement("div", { className: "wpg-block wpg-b_quote", dangerouslySetInnerHTML: { __html: innerHTML } }));
 };
 exports.default = WPGQuoteBlock;

@@ -8,9 +8,7 @@ Using [LazyBlocks](https://wordpress.org/plugins/lazy-blocks/) to create custom 
 
 The frontend can either be a ReactJS App or [Gatsby](https://gatsbyjs.org/) Headless site.
 
-
 [View Demo](https://gatsby-gutenberg.netlify.com/)
-
 
 ## Prerequisites
 
@@ -18,7 +16,7 @@ In order for this to work we'll need to get the Gutenberg data as JSON from WP v
 
 The following code exposes a new field on posts and pages called `blocks`. It can be added either via a plugin or in your theme's `functions.php` file
 
-```
+```php
 <?php
 
 add_action(
@@ -52,12 +50,15 @@ add_action(
 
 ### Install
 
-`npm install react-gutenberg --save`
+Install react-gutenberg and it's peer dependencies
 
-To include your own custom components: `npm install @loadable/component @types/loadable__component --save`
+`yarn add react-gutenberg @loadable/component`
+
+`npm install react-gutenberg @loadable/component`
 
 ### ReactJS Example
-```
+
+```tsx
 import WPGBlocks from 'react-gutenberg'
 …
 
@@ -98,25 +99,23 @@ import WPGBlocks from 'react-gutenberg'
 
 ### Gatsby Example
 
-```
-import * as React from "react"
-import { graphql } from "gatsby"
-import WPGBlocks from "react-gutenberg"
-import { IWPGBlock } from "react-gutenberg/src/types"
+```tsx
+import * as React from "react";
+import { graphql } from "gatsby";
+import WPGBlocks from "react-gutenberg";
+import { IWPGBlock } from "react-gutenberg/src/types";
 
-const Loading = () => (
-  <div class="loading"></div>
-)
+const Loading = () => <div class="loading"></div>;
 
 interface IPost {
-  wordpress_id: number
-  id: number
-  title: string
-  blocks: IWPGBlock[]
+  wordpress_id: number;
+  id: number;
+  title: string;
+  blocks: IWPGBlock[];
 }
 
-const Post: React.SFC<{data: { post: IPost }}> = ({ data }) => {
-  const { id, title, blocks } = data.post
+const Post: React.FC<{ data: { post: IPost } }> = ({ data }) => {
+  const { id, title, blocks } = data.post;
 
   return (
     <Layout>
@@ -125,24 +124,24 @@ const Post: React.SFC<{data: { post: IPost }}> = ({ data }) => {
         <WPGBlocks blocks={blocks} />
       </article>
     </Layout>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;
 
 export const pageQuery = graphql`
-  fragment WPPost on wordpress__POST{
-      wordpress_id
-      id
-      title
-      excerpt
+  fragment WPPost on wordpress__POST {
+    wordpress_id
+    id
+    title
+    excerpt
+    slug
+    type
+    date
+    categories {
+      name
       slug
-      type
-      date
-      categories {
-        name
-        slug
-      }
+    }
   }
 
   fragment Blocks on wordpress__POSTBlocks {
@@ -176,7 +175,7 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 ```
 
 ## Supported/Implemented WP Gutenberg Blocks
@@ -255,7 +254,6 @@ To do this you should **lazy import** all your custom blocks into one file say `
 
 To support SSR, we use [`loadable`](https://www.smooth-code.com/open-source/loadable-components/docs/getting-started/). Install it: `npm install @loadable/component @types/loadable__component --save`
 
-
 ```
 // src/blocks/index.tsx
 import loadable from '@loadable/component'
@@ -284,7 +282,7 @@ Example of a custom component for `core/paragraph` block:
 import { IWPGBlock } from 'react-gutenberg/'
 import * as React from 'react'
 
-const CustomParagraphBlock:React.SFC<IWPGBlock> = (props) => {
+const CustomParagraphBlock:React.FC<IWPGBlock> = (props) => {
   const {
     attrs,
     innerHTML } = props
@@ -296,8 +294,6 @@ const CustomParagraphBlock:React.SFC<IWPGBlock> = (props) => {
 
 export default CustomParagraphBlock
 ```
-
-
 
 ## Why?
 

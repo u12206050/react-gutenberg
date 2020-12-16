@@ -4,7 +4,7 @@ const WPGAudioBlock = (props) => {
     const { 
     // attrs,
     // innerBlocks,
-    innerHTML } = props;
+    innerHTML, } = props;
     return (React.createElement("div", { className: "wpg-block wpg-b_audio", dangerouslySetInnerHTML: { __html: innerHTML } }));
 };
 exports.default = WPGAudioBlock;

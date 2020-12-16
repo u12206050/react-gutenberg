@@ -6,12 +6,12 @@ const WPGColumnsBlock = (props) => {
     // attrs,
     innerBlocks, } = props;
     if (!Array.isArray(innerBlocks)) {
-        console.warn('Columns should have innerBlocks');
+        console.warn("Columns should have innerBlocks");
         return null;
     }
     const cols = innerBlocks.length;
-    const columns = innerBlocks.map((col, ci) => React.createElement("div", { className: `wp-block-column ${ci + 1}-column` }, col.innerBlocks.map((block, bi) => React.createElement(index_1.WPGBlock, { key: bi, block: block }))));
-    return (React.createElement("div", { className: `wp-block-columns has-${cols}-columns` }, columns));
+    const columns = innerBlocks.map((col, ci) => (React.createElement("div", { className: `wp-block-column ${ci + 1}-column` }, col.innerBlocks.map((block, bi) => (React.createElement(index_1.WPGBlock, { key: bi, block: block }))))));
+    return React.createElement("div", { className: `wp-block-columns has-${cols}-columns` }, columns);
 };
 exports.default = WPGColumnsBlock;
 //# sourceMappingURL=columns.js.map

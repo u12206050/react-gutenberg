@@ -4,7 +4,7 @@ const WPGListBlock = (props) => {
     const { 
     // attrs,
     // innerBlocks,
-    innerHTML } = props;
+    innerHTML, } = props;
     return (React.createElement("div", { className: "wpg-block wpg-b_list", dangerouslySetInnerHTML: { __html: innerHTML } }));
 };
 exports.default = WPGListBlock;

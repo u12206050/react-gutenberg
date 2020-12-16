@@ -54,7 +54,13 @@ Install react-gutenberg and it's peer dependencies
 
 `yarn add react-gutenberg @loadable/component`
 
-`npm install react-gutenberg @loadable/component`
+`npm i react-gutenberg @loadable/component`
+
+for consumption in Typescript Project, also add `@types/loadable__component` as a dev dependency
+
+`yarn add -D @types/loadable__component`
+
+`npm i --dev @types/loadable__component`
 
 ### ReactJS Example
 

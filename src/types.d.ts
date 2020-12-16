@@ -1,21 +1,21 @@
 export interface IWPGBlock {
-  blockName: string | null;
+  blockName: string | null
   attrs:
     | any[]
     | {
-        [k: string]: any;
-      };
-  innerBlocks: IWPGBlock[];
-  innerHTML: string;
-  innerContent: string[];
+        [k: string]: any
+      }
+  innerBlocks: IWPGBlock[]
+  innerHTML: string
+  innerContent: string[]
 }
 
 export interface IWPGBlockProps {
-  block: IWPGBlock;
-  mapToBlock?(name: string): any | null;
+  block: IWPGBlock
+  mapToBlock?(name: string): any | null
 }
 
 export interface IWPGBlocksProps {
-  blocks: IWPGBlock[];
-  mapToBlock?(name: string): any | null;
+  blocks: IWPGBlock[]
+  mapToBlock?(name: string): any | null
 }

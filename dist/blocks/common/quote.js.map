@@ -1,1 +1,0 @@
-{"version":3,"file":"quote.js","sourceRoot":"","sources":["../../../src/blocks/common/quote.tsx"],"names":[],"mappings":";AACA,+BAA+B;AAE/B,MAAM,aAAa,GAAwB,CAAC,KAAK,EAAE,EAAE;IACnD,MAAM;IACJ,SAAS;IACT,eAAe;IACf,SAAS,GACV,GAAG,KAAK,CAAC;IAEV,OAAO,CACL,6BAAK,SAAS,EAAC,uBAAuB,EAAC,uBAAuB,EAAE,EAAE,MAAM,EAAE,SAAS,EAAE,GAAI,CAC1F,CAAC;AACJ,CAAC,CAAC;AAEF,kBAAe,aAAa,CAAC"}

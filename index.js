@@ -1,2 +1,2 @@
-exports.__esModule = true;
-module.exports = require("./dist");
+exports.__esModule = true
+module.exports = require('./dist')

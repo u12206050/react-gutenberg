@@ -1,6 +1,6 @@
-import * as React from "react";
-import { GetTheBlock } from "./blocks";
-import { IWPGBlocksProps, IWPGBlockProps } from "./types";
+import * as React from 'react'
+import { GetTheBlock } from './blocks'
+import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
 const WPGBlocks: React.FC<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
   return (
@@ -11,20 +11,20 @@ const WPGBlocks: React.FC<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
           <WPGBlock key={index} block={block} mapToBlock={mapToBlock} />
         ))}
     </div>
-  );
-};
+  )
+}
 
 export const WPGBlock: React.FC<IWPGBlockProps> = ({ block, mapToBlock }) => {
-  const { blockName, attrs, innerBlocks, innerHTML, innerContent } = block;
+  const { blockName, attrs, innerBlocks, innerHTML, innerContent } = block
 
-  if (!blockName) return null;
+  if (!blockName) return null
 
-  if (mapToBlock) (WPGBlock as any).MapToBlock = mapToBlock;
+  if (mapToBlock) (WPGBlock as any).MapToBlock = mapToBlock
 
-  let TheBlock = (WPGBlock as any).MapToBlock ? (WPGBlock as any).MapToBlock(blockName) : null;
-  if (!TheBlock) TheBlock = GetTheBlock(blockName);
+  let TheBlock = (WPGBlock as any).MapToBlock ? (WPGBlock as any).MapToBlock(blockName) : null
+  if (!TheBlock) TheBlock = GetTheBlock(blockName)
 
-  if (!TheBlock) return null;
+  if (!TheBlock) return null
 
   return (
     <TheBlock
@@ -34,7 +34,7 @@ export const WPGBlock: React.FC<IWPGBlockProps> = ({ block, mapToBlock }) => {
       innerHTML={innerHTML}
       innerContent={innerContent}
     />
-  );
-};
+  )
+}
 
-export default WPGBlocks;
+export default WPGBlocks

@@ -106,22 +106,22 @@ import WPGBlocks from 'react-gutenberg'
 ### Gatsby Example
 
 ```tsx
-import * as React from "react";
-import { graphql } from "gatsby";
-import WPGBlocks from "react-gutenberg";
-import { IWPGBlock } from "react-gutenberg/src/types";
+import * as React from 'react'
+import { graphql } from 'gatsby'
+import WPGBlocks from 'react-gutenberg'
+import { IWPGBlock } from 'react-gutenberg/src/types'
 
-const Loading = () => <div class="loading"></div>;
+const Loading = () => <div class="loading"></div>
 
 interface IPost {
-  wordpress_id: number;
-  id: number;
-  title: string;
-  blocks: IWPGBlock[];
+  wordpress_id: number
+  id: number
+  title: string
+  blocks: IWPGBlock[]
 }
 
 const Post: React.FC<{ data: { post: IPost } }> = ({ data }) => {
-  const { id, title, blocks } = data.post;
+  const { id, title, blocks } = data.post
 
   return (
     <Layout>
@@ -130,10 +130,10 @@ const Post: React.FC<{ data: { post: IPost } }> = ({ data }) => {
         <WPGBlocks blocks={blocks} />
       </article>
     </Layout>
-  );
-};
+  )
+}
 
-export default Post;
+export default Post
 
 export const pageQuery = graphql`
   fragment WPPost on wordpress__POST {
@@ -181,7 +181,7 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
 ```
 
 ## Supported/Implemented WP Gutenberg Blocks

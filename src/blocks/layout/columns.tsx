@@ -1,20 +1,20 @@
-import { IWPGBlock } from "../../types";
-import * as React from "react";
-import { WPGBlock } from "../../index";
+import { IWPGBlock } from '../../types'
+import * as React from 'react'
+import { WPGBlock } from '../../index'
 
 const WPGColumnsBlock: React.FC<IWPGBlock> = (props) => {
   const {
     // attrs,
-    innerBlocks,
+    innerBlocks
     // innerHTML
-  } = props;
+  } = props
 
   if (!Array.isArray(innerBlocks)) {
-    console.warn("Columns should have innerBlocks");
-    return null;
+    console.warn('Columns should have innerBlocks')
+    return null
   }
 
-  const cols = innerBlocks.length;
+  const cols = innerBlocks.length
 
   const columns = innerBlocks.map((col, ci) => (
     <div className={`wp-block-column ${ci + 1}-column`}>
@@ -22,9 +22,9 @@ const WPGColumnsBlock: React.FC<IWPGBlock> = (props) => {
         <WPGBlock key={bi} block={block} />
       ))}
     </div>
-  ));
+  ))
 
-  return <div className={`wp-block-columns has-${cols}-columns`}>{columns}</div>;
-};
+  return <div className={`wp-block-columns has-${cols}-columns`}>{columns}</div>
+}
 
-export default WPGColumnsBlock;
+export default WPGColumnsBlock

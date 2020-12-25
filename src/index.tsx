@@ -2,21 +2,20 @@ import * as React from 'react'
 import { GetTheBlock } from './blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
-const WPGBlocks:React.SFC<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
+const WPGBlocks: React.FC<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
   return (
     <div className="wpg-blocks">
-      {blocks.filter(block => !!block.blockName).map((block, index) => <WPGBlock key={index} block={block} mapToBlock={mapToBlock} />)}
+      {blocks
+        .filter((block) => !!block.blockName)
+        .map((block, index) => (
+          <WPGBlock key={index} block={block} mapToBlock={mapToBlock} />
+        ))}
     </div>
   )
 }
 
-export const WPGBlock:React.SFC<IWPGBlockProps> = ({ block, mapToBlock }) => {
-
-  const {
-    blockName,
-    attrs,
-    innerBlocks,
-    innerHTML } = block
+export const WPGBlock: React.FC<IWPGBlockProps> = ({ block, mapToBlock }) => {
+  const { blockName, attrs, innerBlocks, innerHTML, innerContent } = block
 
   if (!blockName) return null
 
@@ -28,7 +27,13 @@ export const WPGBlock:React.SFC<IWPGBlockProps> = ({ block, mapToBlock }) => {
   if (!TheBlock) return null
 
   return (
-    <TheBlock blockName={blockName} attrs={attrs} innerBlocks={innerBlocks} innerHTML={innerHTML} />
+    <TheBlock
+      blockName={blockName}
+      attrs={attrs}
+      innerBlocks={innerBlocks}
+      innerHTML={innerHTML}
+      innerContent={innerContent}
+    />
   )
 }
 

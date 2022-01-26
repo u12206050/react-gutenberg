@@ -1,3 +1,5 @@
+‼️ This repository is no longer maintained by the original author. PRs are still welcome, but active support is limited
+
 <a href="https://www.buymeacoffee.com/gerard"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=gerard&button_colour=2a2a2a&font_colour=ffffff&font_family=Cookie&outline_colour=ffffff&coffee_colour=FFDD00"></a>
 
 # Minimilistic ReactJS Gutenberg Blocks

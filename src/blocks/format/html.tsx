@@ -6,7 +6,7 @@ class WPGHtmlBlock extends React.Component<IWPGBlock> {
 
   componentDidMount() {
     document.querySelectorAll(`[data-script="${this.id}"]`).forEach((script) => {
-      ;(window as any).eval(script.innerHTML)
+      window.eval(script.innerHTML)
     })
   }
 

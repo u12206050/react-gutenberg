@@ -17,7 +17,7 @@ const WPGColumnsBlock: React.FC<IWPGBlock> = (props) => {
   const cols = innerBlocks.length
 
   const columns = innerBlocks.map((col, ci) => (
-    <div className={`wp-block-column ${ci + 1}-column`}>
+    <div className={`wp-block-column ${ci + 1}-column`} key={ci}>
       {col.innerBlocks.map((block, bi) => (
         <WPGBlock key={bi} block={block} />
       ))}
